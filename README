@@ -4,7 +4,7 @@ This repository contains a complete outreach/demo redesign for **Hydroseed Inc.*
 
 ## Stack used
 - **Astro** for fast static pages and strong SEO output.
-- **Custom CSS design system** in `src/styles/global.css` for premium, easy-to-edit styling.
+- **Custom CSS design system** in `src/styles/global.css` for premium, easy-to-edit styling
 - **Lightweight native animation layer** (IntersectionObserver + CSS transitions) for scroll reveals/parallax without heavy dependencies.
 
 ## Second-pass visual + interaction polish (this update)

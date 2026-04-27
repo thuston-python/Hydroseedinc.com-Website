@@ -1,0 +1,17 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  schema?: Record<string, unknown> | Array<Record<string, unknown>>;
+}
+const { title, description, canonical, schema } = Astro.props;
+---
+<title>{title}</title>
+<meta name="description" content={description} />
+{canonical && <link rel="canonical" href={canonical} />}
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+{schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}

@@ -1,1 +1,194 @@
-This is a Draft for hydroseedinc
+# Hydroseed Inc. Premium Redesign Demo (Astro)
+
+This repository contains a complete outreach/demo redesign for **Hydroseed Inc.**, focused on hydroseeding, lawn installation, erosion control, and post-installation support across Greater Michiana.
+
+## Stack used
+- **Astro** for fast static pages and strong SEO output.
+- **Custom CSS design system** in `src/styles/global.css` for premium, easy-to-edit styling.
+- **Lightweight native animation layer** (IntersectionObserver + CSS transitions) for scroll reveals/parallax without heavy dependencies.
+
+## Second-pass visual + interaction polish (this update)
+- Rebuilt the visual system with deeper color tokens, larger type scale, richer shadows, and improved spacing rhythm.
+- Redesigned the hero with a layered project-preview composition, service-type selector chips, stronger trust framing, and CTA microcopy.
+- Added reveal-on-scroll and staggered card animations plus subtle parallax on major hero visuals.
+- Added a “Find the Right Starting Point” service-fit selector section.
+- Added a stylized map-style service area section.
+- Added a quote expectations section (“What happens after you request a quote?”).
+- Upgraded before/after area with a premium comparison-style placeholder module.
+- Improved contact and detail-page presentation so the site feels less generic and more sales-ready.
+
+## Project goals implemented
+- Premium local-service design with contractor-grade credibility.
+- Conversion-focused quote path with repeat CTAs, click-to-call, sticky mobile quote CTA, and scroll-triggered desktop quote bar.
+- Unique service/location pages and local-intent internal linking.
+- Structured SEO metadata and JSON-LD schema helpers.
+- Intentional image placeholder system ready for replacement with approved project photos.
+
+## Pages created
+- `/` Homepage
+- `/services`
+- `/services/hydroseeding`
+- `/services/lawn-installation`
+- `/services/commercial-erosion-control`
+- `/services/new-construction-lawn-seeding`
+- `/services/lawn-maintenance`
+- `/services/soil-prep-assessment`
+- `/locations`
+- `/locations/south-bend`
+- `/locations/mishawaka`
+- `/locations/elkhart`
+- `/locations/granger`
+- `/locations/osceola`
+- `/contact`
+- `/blog` (optional starter content strategy index)
+- `/sitemap.xml`
+- `/robots.txt`
+
+## Reusable components created
+- `Header`
+- `Footer`
+- `Hero`
+- `TrustStrip`
+- `SectionHeading`
+- `ServiceCard`
+- `LocationCard`
+- `ProcessTimeline`
+- `BeforeAfterGallery`
+- `ImageFrame`
+- `ResidentialCommercialSplit`
+- `FAQAccordion`
+- `QuoteCTA`
+- `QuoteForm`
+- `SEO`
+- `MobileStickyQuote`
+- `DesktopQuoteBar`
+- `ServiceFitSelector`
+- `ServiceAreaMap`
+- `QuoteExpectations`
+- `ServicePageTemplate`
+- `LocationPageTemplate`
+- `MainLayout`
+
+## Folder structure
+```
+.
+├── public/
+│   └── images/               # SVG placeholder image slots (text-only PR safe)
+├── src/
+│   ├── components/           # reusable UI blocks
+│   ├── data/                 # editable copy/content and schema helpers
+│   ├── layouts/              # page wrapper layout + lightweight animation script
+│   ├── pages/                # all routes
+│   └── styles/               # global design system CSS
+├── astro.config.mjs
+├── package.json
+└── REDESIGN_NOTES.md
+```
+
+## Remote demo image system (no binary files committed)
+The site now uses **remote free-use stock demo visuals** (Unsplash Source URLs) and keeps all local assets text-based.
+These images are **representative demo visuals only** and must not be presented as real Hydroseed Inc. project photos.
+
+### Remote demo visuals currently used
+- Hero image: hydroseeding/grass topic
+- Hydroseeding service image
+- Lawn installation image
+- Commercial erosion control image
+- New construction lawn image
+- Lawn maintenance image
+- Soil prep image
+- Before/after gallery images (2 before + 2 after)
+- Contact/quote image
+
+Source mapping is centralized in `src/data/images.ts`.
+
+### Important usage warning
+- Do **not** claim these stock images are actual Hydroseed Inc. work.
+- Treat them as temporary demo visuals for design presentation only.
+
+### How to replace with real client photos later
+1. Add approved client photos to your preferred image host or local `/public/images/` paths.
+2. Update URLs in `src/data/images.ts` to point to those real assets.
+3. Keep or improve alt text to match the actual image content.
+4. Keep captions transparent unless images are verified real project photos.
+
+### Fallback if remote URLs are blocked
+If remote stock URLs fail in deployment, upload and map these filenames manually:
+- `hero-hydroseeding`
+- `hydroseeding-service`
+- `lawn-installation`
+- `commercial-erosion-control`
+- `new-construction-lawn`
+- `lawn-maintenance`
+- `soil-prep`
+- `before-lawn-1`
+- `after-lawn-1`
+- `before-lawn-2`
+- `after-lawn-2`
+- `equipment-process`
+- `contact-quote`
+
+## Animation system
+- Scroll reveal (`[data-reveal]`) using IntersectionObserver.
+- Staggered child reveal (`data-reveal="stagger"`) for cards.
+- Subtle parallax shift for hero visual groups (`[data-parallax]`).
+- Sticky desktop quote prompt toggled after scroll.
+
+No heavy animation libraries are used.
+
+## SEO improvements included
+- Unique page titles and descriptions.
+- Semantic heading structure.
+- Local-intent internal links between service and location pages.
+- FAQ content on homepage and detail pages.
+- JSON-LD support for LocalBusiness, Service, and FAQPage.
+- Sitemap route (`/sitemap.xml`) and robots route (`/robots.txt`).
+- Natural keyword integration (no stuffing).
+
+## Quote form integration options (currently frontend-only)
+The form is intentionally backend-free in this demo. You can connect it via:
+
+### Netlify Forms
+- Add `name="quote"` and `data-netlify="true"` on `<form>`.
+- Include hidden `<input type="hidden" name="form-name" value="quote" />`.
+
+### Formspree
+- Set `action="https://formspree.io/f/{your-id}"` and `method="POST"`.
+
+### EmailJS
+- Add client-side script with EmailJS SDK and map fields to template variables.
+
+### Resend or custom API route
+- Add server endpoint (Astro API route) and send validated payload to email service.
+
+## Install and run
+> If your environment blocks npm registry access, install commands will fail until network policy is updated.
+
+```bash
+npm install
+npm run dev
+```
+
+## Build
+```bash
+npm run build
+npm run preview
+```
+
+## Deploy
+### Vercel
+1. Push repo to GitHub.
+2. Import project in Vercel.
+3. Build command: `npm run build`
+4. Output directory: `dist`
+
+### Replit
+1. Import repo into Replit.
+2. Run `npm install`.
+3. Run: `npm run dev -- --host`
+
+## Respectful outreach framing (Tobin Studio)
+- Frame this as a growth-ready redesign demo, not a teardown.
+- Acknowledge existing site strengths first.
+- Highlight improved lead clarity, trust presentation, and local SEO structure.
+- Replace placeholders with real media, approved reviews, and owner-verified details before launch.

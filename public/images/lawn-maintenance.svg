@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title>Service Placeholder</title>
+  <desc>Post-install lawn maintenance guidance visual slot</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#15372f"/>
+      <stop offset="58%" stop-color="#2f6454"/>
+      <stop offset="100%" stop-color="#9ab77f"/>
+    </linearGradient>
+    <linearGradient id="soil" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7a6747" stop-opacity="0.65"/>
+      <stop offset="100%" stop-color="#c6ae88" stop-opacity="0.35"/>
+    </linearGradient>
+    <pattern id="lines" width="18" height="18" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+      <line x1="0" y1="0" x2="0" y2="18" stroke="rgba(255,255,255,0.12)" stroke-width="4"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#lines)" opacity="0.4"/>
+  <ellipse cx="350" cy="760" rx="560" ry="250" fill="#5ea55d" opacity="0.45"/>
+  <ellipse cx="1230" cy="810" rx="600" ry="220" fill="url(#soil)"/>
+  <g transform="translate(120 120)">
+    <rect x="0" y="0" width="690" height="240" rx="24" fill="rgba(10,20,18,0.45)" stroke="rgba(255,255,255,0.22)"/>
+    <text x="34" y="84" font-family="Inter,Arial,sans-serif" font-size="52" font-weight="700" fill="#f7f4ec">Service Placeholder</text>
+    <text x="34" y="142" font-family="Inter,Arial,sans-serif" font-size="30" fill="#deeee4">Hydroseed Inc. Demo Image Slot</text>
+    <text x="34" y="192" font-family="Inter,Arial,sans-serif" font-size="24" fill="#d4e4dd">Post-install lawn maintenance guidance visual slot</text>
+  </g>
+  <g transform="translate(1160 130)">
+    <rect x="0" y="0" width="320" height="120" rx="18" fill="rgba(250,255,252,0.16)" stroke="rgba(255,255,255,0.35)"/>
+    <text x="20" y="50" font-family="Inter,Arial,sans-serif" font-size="24" font-weight="700" fill="#f7f4ec">Replace With</text>
+    <text x="20" y="84" font-family="Inter,Arial,sans-serif" font-size="22" fill="#f7f4ec">Approved Photo</text>
+  </g>
+</svg>

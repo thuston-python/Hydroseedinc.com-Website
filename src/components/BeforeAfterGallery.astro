@@ -1,0 +1,24 @@
+---
+import { demoImages, demoCaptionSuffix } from '../data/images';
+import ImageFrame from './ImageFrame.astro';
+---
+<section class="section" data-reveal>
+  <div class="container">
+    <p class="badge">Before / After Proof</p>
+    <h2 class="section-title">Visualize the transition from exposed soil to stable lawn coverage.</h2>
+    <p class="section-intro">These are representative demo visuals from free-use stock sources. Replace with approved Hydroseed project photos before launch.</p>
+
+    <div class="before-after-compare" style="margin:1.2rem 0 1rem;" aria-label="before and after comparison placeholder">
+      <div class="before-after-layer before-layer"><span class="tag">Before · Bare Ground</span></div>
+      <div class="before-after-layer after-layer"><span class="tag">After · Seeded + Protected</span></div>
+      <div class="before-after-handle" aria-hidden="true"></div>
+    </div>
+
+    <div class="cards-2" data-reveal="stagger">
+      <ImageFrame src={demoImages.beforeOne} alt="Representative demo image of bare new construction dirt lot" caption={`Before: Bare post-construction lot · ${demoCaptionSuffix}`} />
+      <ImageFrame src={demoImages.afterOne} alt="Representative demo image of established green backyard lawn" caption={`After: Healthy early-stage turf establishment · ${demoCaptionSuffix}`} />
+      <ImageFrame src={demoImages.beforeTwo} alt="Representative demo image of slope with exposed soil" caption={`Before: Erosion-prone slope · ${demoCaptionSuffix}`} />
+      <ImageFrame src={demoImages.afterTwo} alt="Representative demo image of stabilized commercial landscape" caption={`After: Stabilized seeded coverage · ${demoCaptionSuffix}`} />
+    </div>
+  </div>
+</section>

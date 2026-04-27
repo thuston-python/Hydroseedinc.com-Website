@@ -1,0 +1,52 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import SectionHeading from './SectionHeading.astro';
+import FAQAccordion from './FAQAccordion.astro';
+import QuoteCTA from './QuoteCTA.astro';
+import ImageFrame from './ImageFrame.astro';
+import { makeFaqSchema, makeServiceSchema } from '../data/schemas';
+import { demoCaptionSuffix } from '../data/images';
+
+interface Props {
+  title: string;
+  meta: string;
+  h1: string;
+  intro: string;
+  fit: string[];
+  faqs: { q: string; a: string }[];
+  image: string;
+}
+
+const { title, meta, h1, intro, fit, faqs, image } = Astro.props;
+const schema = [makeServiceSchema(h1, intro), makeFaqSchema(faqs)];
+---
+<MainLayout title={title} description={meta} schema={schema}>
+  <section class="section" data-reveal>
+    <div class="container two-col">
+      <div>
+        <p class="badge">Service Detail</p>
+        <h1 class="section-title">{h1}</h1>
+        <p class="section-intro">{intro}</p>
+        <p style="display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1rem;">
+          <a class="btn btn-primary" href="/contact">Request a Free Quote</a>
+          <a class="btn btn-secondary" href="/locations">View Service Areas</a>
+        </p>
+        <p class="cta-note">Not sure if this is the right service? Send your city, project size, and current site condition.</p>
+      </div>
+      <ImageFrame src={image} alt={`Placeholder visual for ${h1}`} caption={`Service Visual · ${demoCaptionSuffix}`} />
+    </div>
+  </section>
+
+  <section class="section-sm section-tint" data-reveal>
+    <div class="container card" style="padding:1.2rem;">
+      <SectionHeading title="Best fit project types" intro="These are common project situations where this service performs well." />
+      <ul>
+        {fit.map((item) => <li>{item}</li>)}
+      </ul>
+      <p>Related pages: <a href="/services/lawn-installation">Lawn Installation</a> · <a href="/services/hydroseeding">Hydroseeding</a> · <a href="/services/commercial-erosion-control">Commercial Erosion Control</a> · <a href="/contact">Request Quote</a></p>
+    </div>
+  </section>
+
+  <FAQAccordion items={faqs} />
+  <QuoteCTA />
+</MainLayout>

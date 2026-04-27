@@ -1,0 +1,28 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import QuoteCTA from '../../components/QuoteCTA.astro';
+import { services, locations } from '../../data/site';
+import { localBusinessSchema } from '../../data/schemas';
+---
+<MainLayout title="Services | Hydroseed Inc. Michiana" description="Hydroseeding, lawn installation, erosion control, new construction seeding, and maintenance support in Greater Michiana." schema={localBusinessSchema}>
+  <section class="section" data-reveal>
+    <div class="container">
+      <SectionHeading badge="Services Overview" title="Choose the service that matches your ground conditions" intro="From new construction lawns to erosion-prone commercial zones, each service is built around realistic site prep and establishment goals." />
+      <div class="cards-3" style="margin-top:1rem;" data-reveal="stagger">
+        {services.map((service) => (
+          <ServiceCard title={service.title} excerpt={service.excerpt} href={`/services/${service.slug}`} image={service.image} />
+        ))}
+      </div>
+      <article class="card" style="padding:1.2rem;margin-top:1.2rem;">
+        <h3>Serving Greater Michiana</h3>
+        <p>Want location-specific guidance on timing, lot size, and service fit? Start with your area page:</p>
+        <p style="display:flex;gap:.6rem;flex-wrap:wrap;">
+          {locations.slice(0, 5).map((location) => <a class="btn btn-secondary" href={`/locations/${location.slug}`}>{location.name}</a>)}
+        </p>
+      </article>
+    </div>
+  </section>
+  <QuoteCTA title="Need help choosing the right service path?" copy="Share your current ground condition and timeline. We’ll recommend the best starting point." />
+</MainLayout>

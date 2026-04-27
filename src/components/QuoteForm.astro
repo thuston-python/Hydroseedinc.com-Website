@@ -1,0 +1,17 @@
+<form class="card quote-form" method="post" data-placeholder-form="true">
+  <p class="badge">Request Quote</p>
+  <h2 style="margin:.2rem 0 1rem;">Tell us about your project</h2>
+  <div class="form-grid">
+    <div><label for="name">Name</label><input id="name" name="name" required /></div>
+    <div><label for="phone">Phone</label><input id="phone" name="phone" type="tel" required /></div>
+    <div><label for="email">Email</label><input id="email" name="email" type="email" required /></div>
+    <div><label for="city">City / Property Location</label><input id="city" name="city" required /></div>
+    <div><label for="service">Service Needed</label><select id="service" name="service"><option>Hydroseeding</option><option>Lawn Installation</option><option>Commercial Erosion Control</option><option>New Construction Seeding</option><option>Lawn Maintenance</option><option>Soil Prep & Assessment</option></select></div>
+    <div><label for="type">Property Type</label><select id="type" name="type"><option>Residential</option><option>Commercial</option><option>Builder / Contractor</option><option>Municipality / Other</option></select></div>
+    <div><label for="size">Approximate Project Size</label><input id="size" name="size" placeholder="ex: 12,000 sq ft" /></div>
+    <div><label for="timeline">Timeline</label><input id="timeline" name="timeline" placeholder="ASAP, 2-4 weeks, etc." /></div>
+  </div>
+  <div style="margin-top:.9rem;"><label for="message">Message / Project Details</label><textarea id="message" name="message"></textarea></div>
+  <p style="font-size:.9rem;color:var(--muted);">Demo form (no backend attached yet). See README for Netlify/Formspree/Resend/EmailJS/API setup options.</p>
+  <button class="btn btn-primary" type="submit">Request a Free Quote</button>
+</form>

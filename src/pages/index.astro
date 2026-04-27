@@ -1,0 +1,112 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import ResidentialCommercialSplit from '../components/ResidentialCommercialSplit.astro';
+import ProcessTimeline from '../components/ProcessTimeline.astro';
+import BeforeAfterGallery from '../components/BeforeAfterGallery.astro';
+import LocationCard from '../components/LocationCard.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import QuoteCTA from '../components/QuoteCTA.astro';
+import { services, locations, homepageFaqs } from '../data/site';
+import { localBusinessSchema, makeFaqSchema } from '../data/schemas';
+
+const schema = [localBusinessSchema, makeFaqSchema(homepageFaqs)];
+---
+<MainLayout
+  title="Hydroseeding, Lawn Installation & Erosion Control in Michiana | Hydroseed Inc."
+  description="Hydroseed Inc. provides hydroseeding, lawn installation, erosion control, and new construction seeding in South Bend, Mishawaka, Elkhart, Granger, Osceola, and Greater Michiana."
+  schema={schema}
+>
+  <Hero />
+
+  <section class="section">
+    <div class="container two-col">
+      <div>
+        <SectionHeading
+          badge="Problem / Solution"
+          title="When lawn projects fail, it usually starts with prep—not seed."
+          intro="Hydroseed Inc. helps property owners solve bare dirt after construction, patchy growth, washout on slopes, and expensive sod bids on large yards. The approach starts with soil and grade conditions, then matches the right seeding method."
+        />
+      </div>
+      <article class="card" style="padding:1.2rem;">
+        <h3>Common pain points we address</h3>
+        <ul>
+          <li>Bare dirt after construction handoff</li>
+          <li>Patchy lawns from weak seed-to-soil contact</li>
+          <li>Large lawns too expensive to sod</li>
+          <li>Erosion and washout on slopes</li>
+          <li>Poor soil conditions and drainage</li>
+          <li>Commercial jobsite stabilization needs</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="container">
+      <SectionHeading
+        badge="Core Services"
+        title="Specialized service lines for residential and commercial properties"
+        intro="Hydroseed Inc. is structured for lawn establishment and stabilization work, not generic mowing-only service bundles."
+      />
+      <div class="cards-3" style="margin-top:1rem;">
+        {services.map((service) => (
+          <ServiceCard title={service.title} excerpt={service.excerpt} href={`/services/${service.slug}`} image={service.image} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <ResidentialCommercialSplit />
+  <ProcessTimeline />
+  <BeforeAfterGallery />
+
+  <section class="section">
+    <div class="container cards-2">
+      <div>
+        <SectionHeading badge="Why Hydroseed Inc." title="Built for large-lawn and soil-prep-heavy work in Michiana" />
+        <ul>
+          <li>Specialized hydroseeding knowledge and job-fit recommendations</li>
+          <li>Large-lawn experience across residential and commercial projects</li>
+          <li>Soil-prep-first process to improve establishment success</li>
+          <li>Coverage across the local Michiana service footprint</li>
+          <li>90-day installation warranty details reviewed during quoting</li>
+          <li>Residential + commercial capability in one team</li>
+        </ul>
+      </div>
+      <article class="card" style="padding:1.2rem; background:#fff8ea; border-color:#cfb572;">
+        <p class="badge" style="color:#8b6b2f;">Warranty / Trust</p>
+        <h3>90-Day Installation Warranty</h3>
+        <p>Warranty coverage applies to approved installation scopes with recommended watering and access conditions. Full terms are reviewed in writing before work begins.</p>
+        <a class="btn btn-secondary" href="/contact">Ask for Warranty Details</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeading badge="Service Areas" title="Serving local property owners across Greater Michiana" />
+      <div class="cards-3" style="margin-top:1rem;">
+        {locations.map((location) => (
+          <LocationCard name={location.name} summary={location.summary} href={location.slug === 'greater-michiana' ? '/locations' : `/locations/${location.slug}`} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeading badge="Client Feedback" title="Placeholder testimonial format for demo presentation" intro="Real customer testimonials should replace this section before launch. No fabricated names, ratings, or claims are used in this demo." />
+      <div class="cards-3" style="margin-top:1rem;">
+        <article class="card" style="padding:1rem;"><h3>What homeowners value</h3><p>Clear communication around watering, realistic growth timelines, and fewer surprises after construction completion.</p></article>
+        <article class="card" style="padding:1rem;"><h3>What builders value</h3><p>Scheduling coordination with closeout milestones and consistent site stabilization support.</p></article>
+        <article class="card" style="padding:1rem;"><h3>What property managers value</h3><p>Reliable recommendations for erosion-prone areas and practical long-lawn establishment plans.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <FAQAccordion items={homepageFaqs} />
+  <QuoteCTA />
+</MainLayout>

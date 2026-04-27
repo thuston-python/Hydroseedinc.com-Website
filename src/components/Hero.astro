@@ -1,0 +1,21 @@
+---
+import { company } from '../data/site';
+import TrustStrip from './TrustStrip.astro';
+import ImageFrame from './ImageFrame.astro';
+---
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <p class="badge">Michiana Lawn Establishment Specialists</p>
+      <h1>Michiana Lawn Installation, Hydroseeding & Erosion Control</h1>
+      <p>Specialized seeding and site-prep services for large residential lawns, new construction properties, commercial sites, and erosion-prone areas across {company.serviceArea}.</p>
+      <p><a class="phone-chip" href={`tel:${company.phoneHref}`}>Call {company.phoneDisplay}</a></p>
+      <p style="display:flex;gap:.7rem;flex-wrap:wrap;">
+        <a class="btn btn-primary" href="/contact">Request a Free Quote</a>
+        <a class="btn btn-secondary" href="#process">See Our Process</a>
+      </p>
+      <TrustStrip />
+    </div>
+    <ImageFrame src="/images/hero-hydroseeding.svg" alt="Placeholder hero visual showing hydroseeding spray on prepared lawn in Michiana" caption="Placeholder visual: Hydroseeding setup on a prepared large lawn" />
+  </div>
+</section>

@@ -1,0 +1,36 @@
+---
+import { company, services, locations } from '../data/site';
+---
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <h3>Hydroseed Inc.</h3>
+      <p>Specialized hydroseeding, lawn installation, and erosion control across Greater Michiana.</p>
+      <a href={`tel:${company.phoneHref}`}>{company.phoneDisplay}</a>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <ul>
+        {services.slice(0, 5).map((service) => (
+          <li><a href={`/services/${service.slug}`}>{service.title}</a></li>
+        ))}
+      </ul>
+    </div>
+    <div>
+      <h4>Locations</h4>
+      <ul>
+        {locations.slice(0, 5).map((location) => (
+          <li><a href={`/locations/${location.slug}`}>{location.name}</a></li>
+        ))}
+      </ul>
+    </div>
+    <div>
+      <h4>Local SEO Links</h4>
+      <ul>
+        <li><a href="/services/hydroseeding">Hydroseeding South Bend IN</a></li>
+        <li><a href="/services/lawn-installation">Lawn Installation Michiana</a></li>
+        <li><a href="/services/commercial-erosion-control">Commercial Erosion Control South Bend</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>

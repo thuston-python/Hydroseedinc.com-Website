@@ -1,0 +1,22 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import ImageFrame from '../components/ImageFrame.astro';
+import { company } from '../data/site';
+---
+<MainLayout title="Request a Free Quote | Hydroseed Inc." description="Request a hydroseeding, lawn installation, erosion control, or maintenance quote in South Bend and Greater Michiana.">
+  <section class="section">
+    <div class="container two-col">
+      <div>
+        <p class="badge">Contact / Request Quote</p>
+        <h1 class="section-title">Tell us about your property and project timeline.</h1>
+        <p class="section-intro">We review your project fit, service location, and preferred timeline. Then we recommend a practical next step for installation or stabilization work.</p>
+        <p><strong>Call:</strong> <a href={`tel:${company.phoneHref}`}>{company.phoneDisplay}</a></p>
+        <p><strong>Service area:</strong> {company.serviceArea}</p>
+        <p><strong>What happens next:</strong> We respond with scope questions, recommended service path, and scheduling options.</p>
+        <ImageFrame src="/images/contact-quote.svg" alt="Placeholder contact visual showing lawn consultation and site prep planning" caption="Placeholder visual slot: replace with approved consultation or project photo" />
+      </div>
+      <QuoteForm />
+    </div>
+  </section>
+</MainLayout>

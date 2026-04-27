@@ -1,0 +1,15 @@
+---
+import ServicePageTemplate from '../../components/ServicePageTemplate.astro';
+const page = {
+  title: 'Soil Prep & Site Assessment Services | Hydroseed Inc.',
+  meta: 'Soil prep and site assessment for hydroseeding and lawn installation projects in Greater Michiana.',
+  h1: 'Soil Prep & Site Assessment Before Seeding',
+  intro: 'Healthy lawns start below the surface. Hydroseed Inc. reviews grade, compaction, and drainage conditions before recommending seed strategy.',
+  fit: ['Lots with compaction or runoff issues', 'Sites with repeated patchy growth', 'Builders finalizing grade and drainage', 'Large areas needing prep-first planning'],
+  faqs: [
+    { q: 'Why does soil prep matter so much?', a: 'Poor prep causes weak seed-to-soil contact and uneven moisture, leading to slower or patchy establishment.' },
+    { q: 'Do you test every site?', a: 'Each project includes practical assessment steps to identify the biggest establishment risks early.' }
+  ]
+};
+---
+<ServicePageTemplate {...page} image="/images/soil-prep.svg" />

@@ -1,4 +1,5 @@
 ---
+import { demoImages, demoCaptionSuffix } from '../data/images';
 import MainLayout from '../layouts/MainLayout.astro';
 import QuoteCTA from './QuoteCTA.astro';
 import FAQAccordion from './FAQAccordion.astro';
@@ -15,31 +16,31 @@ interface Props {
 const { title, meta, h1, intro, city } = Astro.props;
 const faqs = [
   { q: `Do you provide hydroseeding in ${city}?`, a: `Yes, Hydroseed Inc. serves ${city} and nearby Michiana communities for hydroseeding and lawn installation projects.` },
-  { q: 'Can you handle both residential and commercial projects?', a: 'Yes. The team supports homeowner, builder, and commercial stabilization work.' },
-  { q: 'How do I request a quote?', a: 'Use the contact page form or call directly for a project-fit conversation and scheduling details.' }
+  { q: `Can you handle new construction lawns in ${city}?`, a: 'Yes. We regularly support builder lots and homeowner new-construction yards that need grading, seeding, and early stabilization.' },
+  { q: 'How do I request a quote?', a: 'Use the contact form with your project size, property type, and timeline, or call directly for a quick fit discussion.' }
 ];
 ---
 <MainLayout title={title} description={meta} schema={makeFaqSchema(faqs)}>
-  <section class="section">
+  <section class="section" data-reveal>
     <div class="container two-col">
       <div>
-        <p class="badge">Location Page</p>
+        <p class="badge">{city} Service Area</p>
         <h1 class="section-title">{h1}</h1>
         <p class="section-intro">{intro}</p>
-        <p>Popular local requests include hydroseeding for large lots, lawn installation after construction, and commercial erosion stabilization.</p>
+        <p>In {city}, common requests include large areas of bare ground after construction, patchy lawns that need better prep, and sites that need erosion protection before landscaping.</p>
         <p style="display:flex;gap:.7rem;flex-wrap:wrap;">
           <a class="btn btn-primary" href="/contact">Request a Free Quote</a>
           <a class="btn btn-secondary" href="/services">Explore Services</a>
         </p>
       </div>
-      <ImageFrame src="/images/equipment-process.svg" alt={`Placeholder local service area visual for ${city}`} caption={`Placeholder: ${city} area service photo slot`} />
+      <ImageFrame src={demoImages.equipmentProcess} alt={`Representative demo image of landscaping equipment and site prep work for ${city}`} badge="Local Service Area" caption={`${demoCaptionSuffix}`} />
     </div>
   </section>
 
-  <section class="section-sm">
+  <section class="section-sm" data-reveal>
     <div class="container card" style="padding:1.2rem;">
-      <h2>Internal links for local intent</h2>
-      <p><a href="/services/hydroseeding">Hydroseeding</a> · <a href="/services/lawn-installation">Lawn Installation</a> · <a href="/services/new-construction-lawn-seeding">New Construction Lawn Seeding</a></p>
+      <h2>Popular services in {city}</h2>
+      <p><a href="/services/hydroseeding">Hydroseeding</a> · <a href="/services/lawn-installation">Lawn Installation</a> · <a href="/services/new-construction-lawn-seeding">New Construction Lawn Seeding</a> · <a href="/services/commercial-erosion-control">Commercial Erosion Control</a></p>
     </div>
   </section>
 

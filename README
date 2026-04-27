@@ -4,13 +4,22 @@ This repository contains a complete outreach/demo redesign for **Hydroseed Inc.*
 
 ## Stack used
 - **Astro** for fast static pages and strong SEO output.
-- **Custom CSS design system** in `src/styles/global.css` for premium, easy-to-edit styling.
+- **Custom CSS design system** in `src/styles/global.css` for premium, easy-to-edit styling
+- **Lightweight native animation layer** (IntersectionObserver + CSS transitions) for scroll reveals/parallax without heavy dependencies.
 
-> Why Astro: excellent performance, SEO-friendly static output, simple component architecture, and easy deployment to Vercel/Replit.
+## Second-pass visual + interaction polish (this update)
+- Rebuilt the visual system with deeper color tokens, larger type scale, richer shadows, and improved spacing rhythm.
+- Redesigned the hero with a layered project-preview composition, service-type selector chips, stronger trust framing, and CTA microcopy.
+- Added reveal-on-scroll and staggered card animations plus subtle parallax on major hero visuals.
+- Added a “Find the Right Starting Point” service-fit selector section.
+- Added a stylized map-style service area section.
+- Added a quote expectations section (“What happens after you request a quote?”).
+- Upgraded before/after area with a premium comparison-style placeholder module.
+- Improved contact and detail-page presentation so the site feels less generic and more sales-ready.
 
 ## Project goals implemented
 - Premium local-service design with contractor-grade credibility.
-- Conversion-focused quote path with repeat CTAs, click-to-call, and sticky mobile quote button.
+- Conversion-focused quote path with repeat CTAs, click-to-call, sticky mobile quote CTA, and scroll-triggered desktop quote bar.
 - Unique service/location pages and local-intent internal linking.
 - Structured SEO metadata and JSON-LD schema helpers.
 - Intentional image placeholder system ready for replacement with approved project photos.
@@ -52,6 +61,10 @@ This repository contains a complete outreach/demo redesign for **Hydroseed Inc.*
 - `QuoteForm`
 - `SEO`
 - `MobileStickyQuote`
+- `DesktopQuoteBar`
+- `ServiceFitSelector`
+- `ServiceAreaMap`
+- `QuoteExpectations`
 - `ServicePageTemplate`
 - `LocationPageTemplate`
 - `MainLayout`
@@ -60,11 +73,11 @@ This repository contains a complete outreach/demo redesign for **Hydroseed Inc.*
 ```
 .
 ├── public/
-│   └── images/               # placeholder image slots (replace before launch)
+│   └── images/               # SVG placeholder image slots (text-only PR safe)
 ├── src/
 │   ├── components/           # reusable UI blocks
 │   ├── data/                 # editable copy/content and schema helpers
-│   ├── layouts/              # page wrapper layout
+│   ├── layouts/              # page wrapper layout + lightweight animation script
 │   ├── pages/                # all routes
 │   └── styles/               # global design system CSS
 ├── astro.config.mjs
@@ -72,27 +85,58 @@ This repository contains a complete outreach/demo redesign for **Hydroseed Inc.*
 └── REDESIGN_NOTES.md
 ```
 
-## Image placeholder system
-All current visuals are **text-based SVG placeholders** so the PR stays binary-free and fully reviewable.
-The following image paths are already wired into components/pages:
-- `/public/images/hero-hydroseeding.svg`
-- `/public/images/large-lawn-installation.svg`
-- `/public/images/commercial-erosion-control.svg`
-- `/public/images/new-construction-lawn.svg`
-- `/public/images/lawn-maintenance.svg`
-- `/public/images/soil-prep.svg`
-- `/public/images/before-lawn-1.svg`
-- `/public/images/after-lawn-1.svg`
-- `/public/images/before-lawn-2.svg`
-- `/public/images/after-lawn-2.svg`
-- `/public/images/equipment-process.svg`
-- `/public/images/contact-quote.svg`
+## Stable image system (no broken remote URLs)
+To avoid broken image icons on Vercel, the site now uses **stable local SVG visuals** from `/public/images/`.
+No binary image files are committed.
 
-### Replacing placeholder images
-1. Keep the same filenames to avoid updating component references.
-2. Replace files with approved real photos (`.jpg`, `.webp`, etc.) or production SVG artwork while keeping the same filenames/paths as needed.
-3. Preserve/adjust `alt` text in components for accessibility and local SEO context.
-4. Ensure all real images are licensed and approved by the business.
+### Active visual sources
+All image references are mapped through `src/data/images.ts` and point to local SVG files:
+- Hero visual
+- Hydroseeding service visual
+- Lawn installation visual
+- Commercial erosion control visual
+- New construction lawn visual
+- Lawn maintenance visual
+- Soil prep visual
+- Before/after gallery visuals
+- Contact/quote visual
+
+### Reliability + fallback behavior
+- Images use local SVG paths (no dynamic topic URLs).
+- `ImageFrame` includes on-error fallback handling so broken image icons are hidden.
+- Premium gradient/texture overlays and badges remain visible even if an image fails.
+
+### Important usage warning
+- These are representative demo visuals only.
+- Do **not** represent them as real Hydroseed Inc. project photos.
+
+### How to replace with real client photos later
+1. Upload approved images to `/public/images/` or your CDN.
+2. Update `src/data/images.ts` with the new stable URLs.
+3. Keep alt text accurate and transparent.
+4. Keep captions factual (no unverified project claims).
+
+### Current local visual filenames
+- `hero-hydroseeding.svg`
+- `large-lawn-installation.svg`
+- `commercial-erosion-control.svg`
+- `new-construction-lawn.svg`
+- `lawn-maintenance.svg`
+- `soil-prep.svg`
+- `before-lawn-1.svg`
+- `after-lawn-1.svg`
+- `before-lawn-2.svg`
+- `after-lawn-2.svg`
+- `equipment-process.svg`
+- `contact-quote.svg`
+
+## Animation system
+- Scroll reveal (`[data-reveal]`) using IntersectionObserver.
+- Staggered child reveal (`data-reveal="stagger"`) for cards.
+- Subtle parallax shift for hero visual groups (`[data-parallax]`).
+- Sticky desktop quote prompt toggled after scroll.
+
+No heavy animation libraries are used.
 
 ## SEO improvements included
 - Unique page titles and descriptions.
@@ -120,14 +164,12 @@ The form is intentionally backend-free in this demo. You can connect it via:
 - Add server endpoint (Astro API route) and send validated payload to email service.
 
 ## Install and run
-> Note: if your environment blocks npm registry access, install commands may fail until network policy is updated.
+> If your environment blocks npm registry access, install commands will fail until network policy is updated.
 
 ```bash
 npm install
 npm run dev
 ```
-
-Open local URL shown by Astro (usually `http://localhost:4321`).
 
 ## Build
 ```bash
@@ -135,22 +177,20 @@ npm run build
 npm run preview
 ```
 
-## Deploy to Vercel
+## Deploy
+### Vercel
 1. Push repo to GitHub.
 2. Import project in Vercel.
 3. Build command: `npm run build`
 4. Output directory: `dist`
-5. Deploy.
 
-## Replit usage
+### Replit
 1. Import repo into Replit.
 2. Run `npm install`.
-3. Set run command to `npm run dev -- --host`.
-4. Use Replit webview URL for preview.
+3. Run: `npm run dev -- --host`
 
-## Presenting this demo respectfully (Tobin Studio guidance)
-- Frame as a **capability demo**, not criticism.
+## Respectful outreach framing (Tobin Studio)
+- Frame this as a growth-ready redesign demo, not a teardown.
 - Acknowledge existing site strengths first.
-- Emphasize gains in conversion clarity, local SEO structure, and service-page depth.
-- Offer migration in phases (copy, photos, trust assets, form backend).
-- Keep testimonial/review data factual and owner-approved.
+- Highlight improved lead clarity, trust presentation, and local SEO structure.
+- Replace placeholders with real media, approved reviews, and owner-verified details before launch.

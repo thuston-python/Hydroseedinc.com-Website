@@ -1,5 +1,6 @@
 ---
+import { demoImages } from '../../data/images';
 import ServicePageTemplate from '../../components/ServicePageTemplate.astro';
 import { servicePages } from '../../data/pageContent';
 ---
-<ServicePageTemplate {...servicePages['new-construction-lawn-seeding']} image="/images/new-construction-lawn.svg" />
+<ServicePageTemplate {...servicePages['new-construction-lawn-seeding']} image={demoImages.newConstruction} />

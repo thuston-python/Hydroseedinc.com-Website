@@ -1,8 +1,24 @@
 ---
-interface Props { src: string; alt: string; caption?: string; className?: string; }
-const { src, alt, caption, className = '' } = Astro.props;
+interface Props {
+  src?: string;
+  alt: string;
+  caption?: string;
+  className?: string;
+  badge?: string;
+}
+const { src, alt, caption, className = '', badge } = Astro.props;
 ---
 <figure class={`image-frame ${className}`.trim()}>
-  <img src={src} alt={alt} loading="lazy" />
+  {src && (
+    <img
+      src={src}
+      alt={alt}
+      loading="lazy"
+      onerror="this.style.display='none'; this.parentElement?.classList.add('image-fallback');"
+    />
+  )}
+  {!src && <div class="image-fallback-layer" aria-hidden="true"></div>}
+  <div class="image-overlay" aria-hidden="true"></div>
+  {badge && <span class="image-badge">{badge}</span>}
   {caption && <figcaption class="image-caption">{caption}</figcaption>}
 </figure>

@@ -37,3 +37,10 @@
 4. Configure analytics + conversion tracking.
 5. Publish local content pieces and monitor keyword performance.
 6. Iterate CTAs and landing sections based on call/quote data.
+
+## Second-Pass Polish: Modern Interaction & Visual Upgrade
+- The first pass already built a strong page structure, SEO routes, and reusable component foundation.
+- This second pass focused on visual quality, interaction polish, and a stronger hero so the demo feels presentation-ready.
+- Improvements include layered hero composition, richer CSS token system, reveal/parallax animations, upgraded before/after visualization, service-fit selector, map-style service area presentation, and better conversion guidance.
+- The site still uses placeholder visuals by design until real Hydroseed project photos are available.
+- Final production step should include owner-approved photos, legitimate reviews, real phone/contact details, and final copy approval.

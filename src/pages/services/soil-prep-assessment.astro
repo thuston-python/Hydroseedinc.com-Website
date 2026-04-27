@@ -1,4 +1,5 @@
 ---
+import { demoImages } from '../../data/images';
 import ServicePageTemplate from '../../components/ServicePageTemplate.astro';
 const page = {
   title: 'Soil Prep & Site Assessment Services | Hydroseed Inc.',
@@ -12,4 +13,4 @@ const page = {
   ]
 };
 ---
-<ServicePageTemplate {...page} image="/images/soil-prep.svg" />
+<ServicePageTemplate {...page} image={demoImages.soilPrep} />

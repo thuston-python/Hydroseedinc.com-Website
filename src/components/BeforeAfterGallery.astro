@@ -1,0 +1,23 @@
+---
+import ImageFrame from './ImageFrame.astro';
+---
+<section class="section" data-reveal>
+  <div class="container">
+    <p class="badge">Before / After Proof</p>
+    <h2 class="section-title">Visualize the transition from exposed soil to stable lawn coverage.</h2>
+    <p class="section-intro">Use this comparison area to show approved project photos later. For now, the placeholders communicate transformation without pretending to be real job photos.</p>
+
+    <div class="before-after-compare" style="margin:1.2rem 0 1rem;" aria-label="before and after comparison placeholder">
+      <div class="before-after-layer before-layer"><span class="tag">Before · Bare Ground</span></div>
+      <div class="before-after-layer after-layer"><span class="tag">After · Seeded + Protected</span></div>
+      <div class="before-after-handle" aria-hidden="true"></div>
+    </div>
+
+    <div class="cards-2" data-reveal="stagger">
+      <ImageFrame src="/images/before-lawn-1.svg" alt="Placeholder before image of bare dirt new construction lot in South Bend" caption="Before: Bare post-construction lot" />
+      <ImageFrame src="/images/after-lawn-1.svg" alt="Placeholder after image showing established lawn after hydroseeding" caption="After: Healthy early-stage turf establishment" />
+      <ImageFrame src="/images/before-lawn-2.svg" alt="Placeholder before image of erosion-prone commercial slope" caption="Before: Erosion-prone slope" />
+      <ImageFrame src="/images/after-lawn-2.svg" alt="Placeholder after image of stabilized commercial seeded slope" caption="After: Stabilized seeded coverage" />
+    </div>
+  </div>
+</section>

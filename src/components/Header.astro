@@ -1,0 +1,23 @@
+---
+import { company } from '../data/site';
+import MobileNav from './MobileNav.astro';
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/services', label: 'Services' },
+  { href: '/locations', label: 'Locations' },
+  { href: '/contact', label: 'Request Quote' }
+];
+---
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="/">Hydroseed Inc.<small>Michiana hydroseeding & lawn installation</small></a>
+    <nav class="nav-links" aria-label="Main Navigation">
+      {links.map((link) => <a href={link.href}>{link.label}</a>)}
+      <a class="btn btn-primary" href="/contact">Request a Free Quote</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:.5rem;">
+      <a class="btn btn-secondary" href={`tel:${company.phoneHref}`}>{company.phoneDisplay}</a>
+      <div class="mobile-only"><MobileNav /></div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,7 @@
+---
+interface Props { badge?: string; title: string; intro?: string; }
+const { badge, title, intro } = Astro.props;
+---
+{badge && <p class="badge">{badge}</p>}
+<h2 class="section-title">{title}</h2>
+{intro && <p class="section-intro">{intro}</p>}

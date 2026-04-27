@@ -1,1 +1,174 @@
-This is a Draft for hydroseedinc
+# Hydroseed Inc. Premium Redesign Demo (Astro)
+
+This repository contains a complete outreach/demo redesign for **Hydroseed Inc.**, focused on hydroseeding, lawn installation, erosion control, and post-installation support across Greater Michiana.
+
+## Stack used
+- **Astro** for fast static pages and strong SEO output.
+- **Custom CSS design system** in `src/styles/global.css` for premium, easy-to-edit styling.
+- **Lightweight native animation layer** (IntersectionObserver + CSS transitions) for scroll reveals/parallax without heavy dependencies.
+
+## Second-pass visual + interaction polish (this update)
+- Rebuilt the visual system with deeper color tokens, larger type scale, richer shadows, and improved spacing rhythm.
+- Redesigned the hero with a layered project-preview composition, service-type selector chips, stronger trust framing, and CTA microcopy.
+- Added reveal-on-scroll and staggered card animations plus subtle parallax on major hero visuals.
+- Added a “Find the Right Starting Point” service-fit selector section.
+- Added a stylized map-style service area section.
+- Added a quote expectations section (“What happens after you request a quote?”).
+- Upgraded before/after area with a premium comparison-style placeholder module.
+- Improved contact and detail-page presentation so the site feels less generic and more sales-ready.
+
+## Project goals implemented
+- Premium local-service design with contractor-grade credibility.
+- Conversion-focused quote path with repeat CTAs, click-to-call, sticky mobile quote CTA, and scroll-triggered desktop quote bar.
+- Unique service/location pages and local-intent internal linking.
+- Structured SEO metadata and JSON-LD schema helpers.
+- Intentional image placeholder system ready for replacement with approved project photos.
+
+## Pages created
+- `/` Homepage
+- `/services`
+- `/services/hydroseeding`
+- `/services/lawn-installation`
+- `/services/commercial-erosion-control`
+- `/services/new-construction-lawn-seeding`
+- `/services/lawn-maintenance`
+- `/services/soil-prep-assessment`
+- `/locations`
+- `/locations/south-bend`
+- `/locations/mishawaka`
+- `/locations/elkhart`
+- `/locations/granger`
+- `/locations/osceola`
+- `/contact`
+- `/blog` (optional starter content strategy index)
+- `/sitemap.xml`
+- `/robots.txt`
+
+## Reusable components created
+- `Header`
+- `Footer`
+- `Hero`
+- `TrustStrip`
+- `SectionHeading`
+- `ServiceCard`
+- `LocationCard`
+- `ProcessTimeline`
+- `BeforeAfterGallery`
+- `ImageFrame`
+- `ResidentialCommercialSplit`
+- `FAQAccordion`
+- `QuoteCTA`
+- `QuoteForm`
+- `SEO`
+- `MobileStickyQuote`
+- `DesktopQuoteBar`
+- `ServiceFitSelector`
+- `ServiceAreaMap`
+- `QuoteExpectations`
+- `ServicePageTemplate`
+- `LocationPageTemplate`
+- `MainLayout`
+
+## Folder structure
+```
+.
+├── public/
+│   └── images/               # SVG placeholder image slots (text-only PR safe)
+├── src/
+│   ├── components/           # reusable UI blocks
+│   ├── data/                 # editable copy/content and schema helpers
+│   ├── layouts/              # page wrapper layout + lightweight animation script
+│   ├── pages/                # all routes
+│   └── styles/               # global design system CSS
+├── astro.config.mjs
+├── package.json
+└── REDESIGN_NOTES.md
+```
+
+## Image placeholder system
+All current visuals are **text-based SVG placeholders** so the PR stays binary-free and fully reviewable.
+
+### Placeholder slots currently wired
+- `/public/images/hero-hydroseeding.svg`
+- `/public/images/large-lawn-installation.svg`
+- `/public/images/commercial-erosion-control.svg`
+- `/public/images/new-construction-lawn.svg`
+- `/public/images/lawn-maintenance.svg`
+- `/public/images/soil-prep.svg`
+- `/public/images/before-lawn-1.svg`
+- `/public/images/after-lawn-1.svg`
+- `/public/images/before-lawn-2.svg`
+- `/public/images/after-lawn-2.svg`
+- `/public/images/equipment-process.svg`
+- `/public/images/contact-quote.svg`
+
+### How to replace SVG placeholders later
+1. Keep current filenames to avoid breaking references.
+2. Replace with approved real project photos (`.jpg`, `.webp`, etc.) or production SVG artwork.
+3. Update `alt` text where needed to reflect real content.
+4. Ensure photo usage rights and owner approval before launch.
+
+## Animation system
+- Scroll reveal (`[data-reveal]`) using IntersectionObserver.
+- Staggered child reveal (`data-reveal="stagger"`) for cards.
+- Subtle parallax shift for hero visual groups (`[data-parallax]`).
+- Sticky desktop quote prompt toggled after scroll.
+
+No heavy animation libraries are used.
+
+## SEO improvements included
+- Unique page titles and descriptions.
+- Semantic heading structure.
+- Local-intent internal links between service and location pages.
+- FAQ content on homepage and detail pages.
+- JSON-LD support for LocalBusiness, Service, and FAQPage.
+- Sitemap route (`/sitemap.xml`) and robots route (`/robots.txt`).
+- Natural keyword integration (no stuffing).
+
+## Quote form integration options (currently frontend-only)
+The form is intentionally backend-free in this demo. You can connect it via:
+
+### Netlify Forms
+- Add `name="quote"` and `data-netlify="true"` on `<form>`.
+- Include hidden `<input type="hidden" name="form-name" value="quote" />`.
+
+### Formspree
+- Set `action="https://formspree.io/f/{your-id}"` and `method="POST"`.
+
+### EmailJS
+- Add client-side script with EmailJS SDK and map fields to template variables.
+
+### Resend or custom API route
+- Add server endpoint (Astro API route) and send validated payload to email service.
+
+## Install and run
+> If your environment blocks npm registry access, install commands will fail until network policy is updated.
+
+```bash
+npm install
+npm run dev
+```
+
+## Build
+```bash
+npm run build
+npm run preview
+```
+
+## Deploy
+### Vercel
+1. Push repo to GitHub.
+2. Import project in Vercel.
+3. Build command: `npm run build`
+4. Output directory: `dist`
+
+### Replit
+1. Import repo into Replit.
+2. Run `npm install`.
+3. Run: `npm run dev -- --host`
+
+## Respectful outreach framing (Tobin Studio)
+- Frame this as a growth-ready redesign demo, not a teardown.
+- Acknowledge existing site strengths first.
+- Highlight improved lead clarity, trust presentation, and local SEO structure.
+- Replace placeholders with real media, approved reviews, and owner-verified details before launch.

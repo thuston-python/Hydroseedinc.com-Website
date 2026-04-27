@@ -1,0 +1,13 @@
+---
+interface Props { title?: string; copy?: string; }
+const { title = 'Ready to turn bare ground into a healthy, durable lawn?', copy = 'Tell us about your property, timeline, and goals. We’ll recommend the right seeding or site-prep path for your project.' } = Astro.props;
+---
+<section class="section-sm" data-reveal>
+  <div class="container card" style="padding:1.5rem; background:#173f36; color:#fff; display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap;">
+    <div>
+      <h2 style="margin:.2rem 0;">{title}</h2>
+      <p style="margin:0; color:#d6e7e2;">{copy}</p>
+    </div>
+    <a class="btn btn-accent" href="/contact">Request a Free Quote</a>
+  </div>
+</section>

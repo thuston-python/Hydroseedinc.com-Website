@@ -1,0 +1,49 @@
+---
+import { company } from '../data/site';
+import TrustStrip from './TrustStrip.astro';
+import ImageFrame from './ImageFrame.astro';
+---
+<section class="hero" data-reveal>
+  <div class="container hero-grid">
+    <div>
+      <p class="serving-badge">Serving Greater Michiana</p>
+      <p class="badge" style="margin-top:.8rem;">Hydroseeding + Lawn Installation</p>
+      <h1>Build a Better Lawn From the Ground Up</h1>
+      <p class="hero-lead">Hydroseeding, lawn installation, and erosion-control prep for large residential lawns, new construction properties, and commercial sites across Greater Michiana.</p>
+      <p class="hero-meta">From bare dirt to a protected, grow-ready surface, Hydroseed Inc. helps prepare, seed, and stabilize the ground before small lawn problems become expensive fixes.</p>
+
+      <div class="hero-chips" aria-label="Project type selector">
+        <a class="hero-chip" href="/services/lawn-installation">Large Residential Lawns</a>
+        <a class="hero-chip" href="/services/new-construction-lawn-seeding">New Construction</a>
+        <a class="hero-chip" href="/services/commercial-erosion-control">Commercial Sites</a>
+        <a class="hero-chip" href="/services/commercial-erosion-control">Erosion Control</a>
+      </div>
+
+      <p><a class="phone-chip" href={`tel:${company.phoneHref}`}>Call {company.phoneDisplay}</a></p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="/contact">Request a Free Quote</a>
+        <a class="btn btn-secondary" href="#process">See the Process</a>
+      </div>
+      <p class="cta-note">Tell us your property type, location, and timeline. We’ll help point you toward the right seeding or site-prep option.</p>
+      <TrustStrip />
+    </div>
+
+    <div class="hero-visual-stack" data-parallax>
+      <div class="hero-main-card card">
+        <ImageFrame src="/images/hero-hydroseeding.svg" alt="Placeholder hero visual showing hydroseeding spray on prepared lawn in Michiana" caption="Project Preview: Bare ground → prep → seed → protected surface" />
+      </div>
+      <aside class="hero-overlay-card" aria-label="project preview card">
+        <p class="badge">Live Project Preview</p>
+        <h3 style="margin:.3rem 0;">South Bend Build Site</h3>
+        <div class="project-meta">
+          <div><strong>Property</strong><br/>Builder Lot</div>
+          <div><strong>Service</strong><br/>Hydroseeding</div>
+          <div><strong>Size</strong><br/>~14,000 sq ft</div>
+          <div><strong>Status</strong><br/>Prep in Progress</div>
+        </div>
+        <div class="progress-track"><span></span></div>
+        <p style="font-size:.87rem;margin:.45rem 0 0;">Assess → Prep → Seed → Protect</p>
+      </aside>
+    </div>
+  </div>
+</section>

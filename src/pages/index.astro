@@ -1,0 +1,105 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import ResidentialCommercialSplit from '../components/ResidentialCommercialSplit.astro';
+import ProcessTimeline from '../components/ProcessTimeline.astro';
+import BeforeAfterGallery from '../components/BeforeAfterGallery.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import QuoteCTA from '../components/QuoteCTA.astro';
+import ServiceFitSelector from '../components/ServiceFitSelector.astro';
+import ServiceAreaMap from '../components/ServiceAreaMap.astro';
+import QuoteExpectations from '../components/QuoteExpectations.astro';
+import { services, homepageFaqs } from '../data/site';
+import { localBusinessSchema, makeFaqSchema } from '../data/schemas';
+
+const schema = [localBusinessSchema, makeFaqSchema(homepageFaqs)];
+---
+<MainLayout
+  title="Hydroseeding, Lawn Installation & Erosion Control in Michiana | Hydroseed Inc."
+  description="Hydroseed Inc. provides hydroseeding, lawn installation, erosion control, and new construction seeding in South Bend, Mishawaka, Elkhart, Granger, Osceola, and Greater Michiana."
+  schema={schema}
+>
+  <Hero />
+
+  <section class="section" data-reveal>
+    <div class="container two-col">
+      <div>
+        <SectionHeading
+          badge="Problem / Solution"
+          title="Large areas of bare ground need more than seed spread by hand."
+          intro="Many lawns struggle because the surface was never prepared correctly. Hydroseed Inc. helps with grading, seeding, and erosion protection so new growth has a better chance from day one."
+        />
+      </div>
+      <article class="card" style="padding:1.2rem;">
+        <h3>Where projects usually go wrong</h3>
+        <ul>
+          <li>Bare dirt left after construction closeout</li>
+          <li>Large yards where sod pricing jumps quickly</li>
+          <li>Patchy lawns that never fully filled in</li>
+          <li>Slopes and drainage paths that wash out seed</li>
+          <li>Commercial sites that need stabilization before landscaping</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="services" data-reveal>
+    <div class="container">
+      <SectionHeading
+        badge="Core Services"
+        title="Hydroseeding and lawn installation services built for real ground conditions"
+        intro="Each service is designed for properties that need grading, seeding, or erosion protection—not just routine mowing."
+      />
+      <div class="cards-3" style="margin-top:1rem;" data-reveal="stagger">
+        {services.map((service) => (
+          <ServiceCard title={service.title} excerpt={service.excerpt} href={`/services/${service.slug}`} image={service.image} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <ServiceFitSelector />
+  <ResidentialCommercialSplit />
+  <ProcessTimeline />
+  <BeforeAfterGallery />
+
+  <section class="section section-dark" data-reveal>
+    <div class="container cards-2">
+      <div>
+        <SectionHeading badge="Why Hydroseed Inc." title="A local team focused on lawn establishment and stabilization" />
+        <ul>
+          <li>Hydroseeding plans built for large lawn installs and new construction yards</li>
+          <li>Ground-first approach: grade, prep, then seed</li>
+          <li>Support for residential homes, builders, and commercial properties</li>
+          <li>90-day installation warranty details reviewed before scheduling</li>
+          <li>Coverage across South Bend, Mishawaka, Elkhart, Granger, Osceola, and nearby areas</li>
+        </ul>
+      </div>
+      <article class="card" style="padding:1.2rem; background:rgba(255,255,255,.1); color:#edf5f2; border-color:rgba(255,255,255,.2);">
+        <p class="badge" style="color:#f4ddad;">Warranty / Trust</p>
+        <h3>90-Day Installation Warranty</h3>
+        <p>Warranty coverage is discussed at estimate time so expectations are clear around watering, access, and site conditions.</p>
+        <a class="btn btn-accent" href="/contact">Ask for Warranty Details</a>
+      </article>
+    </div>
+  </section>
+
+  <ServiceAreaMap />
+  <QuoteExpectations />
+
+  <section class="section" data-reveal>
+    <div class="container">
+      <SectionHeading badge="Placeholder Feedback" title="What clients usually care about most" intro="No fake names or made-up ratings here. These placeholders show the type of feedback section to use once real customer reviews are approved." />
+      <div class="cards-3" style="margin-top:1rem;" data-reveal="stagger">
+        <article class="card" style="padding:1rem;"><h3>Homeowners</h3><p>Clear expectations on watering and realistic timelines for visible growth.</p></article>
+        <article class="card" style="padding:1rem;"><h3>Builders</h3><p>Dependable scheduling around closeout and practical site handoff support.</p></article>
+        <article class="card" style="padding:1rem;"><h3>Property teams</h3><p>Reliable guidance for stabilization zones and large seeding scopes.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <FAQAccordion items={homepageFaqs} />
+  <QuoteCTA />
+</MainLayout>

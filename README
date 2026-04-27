@@ -85,48 +85,50 @@ This repository contains a complete outreach/demo redesign for **Hydroseed Inc.*
 └── REDESIGN_NOTES.md
 ```
 
-## Remote demo image system (no binary files committed)
-The site now uses **remote free-use stock demo visuals** (Unsplash Source URLs) and keeps all local assets text-based.
-These images are **representative demo visuals only** and must not be presented as real Hydroseed Inc. project photos.
+## Stable image system (no broken remote URLs)
+To avoid broken image icons on Vercel, the site now uses **stable local SVG visuals** from `/public/images/`.
+No binary image files are committed.
 
-### Remote demo visuals currently used
-- Hero image: hydroseeding/grass topic
-- Hydroseeding service image
-- Lawn installation image
-- Commercial erosion control image
-- New construction lawn image
-- Lawn maintenance image
-- Soil prep image
-- Before/after gallery images (2 before + 2 after)
-- Contact/quote image
+### Active visual sources
+All image references are mapped through `src/data/images.ts` and point to local SVG files:
+- Hero visual
+- Hydroseeding service visual
+- Lawn installation visual
+- Commercial erosion control visual
+- New construction lawn visual
+- Lawn maintenance visual
+- Soil prep visual
+- Before/after gallery visuals
+- Contact/quote visual
 
-Source mapping is centralized in `src/data/images.ts`.
+### Reliability + fallback behavior
+- Images use local SVG paths (no dynamic topic URLs).
+- `ImageFrame` includes on-error fallback handling so broken image icons are hidden.
+- Premium gradient/texture overlays and badges remain visible even if an image fails.
 
 ### Important usage warning
-- Do **not** claim these stock images are actual Hydroseed Inc. work.
-- Treat them as temporary demo visuals for design presentation only.
+- These are representative demo visuals only.
+- Do **not** represent them as real Hydroseed Inc. project photos.
 
 ### How to replace with real client photos later
-1. Add approved client photos to your preferred image host or local `/public/images/` paths.
-2. Update URLs in `src/data/images.ts` to point to those real assets.
-3. Keep or improve alt text to match the actual image content.
-4. Keep captions transparent unless images are verified real project photos.
+1. Upload approved images to `/public/images/` or your CDN.
+2. Update `src/data/images.ts` with the new stable URLs.
+3. Keep alt text accurate and transparent.
+4. Keep captions factual (no unverified project claims).
 
-### Fallback if remote URLs are blocked
-If remote stock URLs fail in deployment, upload and map these filenames manually:
-- `hero-hydroseeding`
-- `hydroseeding-service`
-- `lawn-installation`
-- `commercial-erosion-control`
-- `new-construction-lawn`
-- `lawn-maintenance`
-- `soil-prep`
-- `before-lawn-1`
-- `after-lawn-1`
-- `before-lawn-2`
-- `after-lawn-2`
-- `equipment-process`
-- `contact-quote`
+### Current local visual filenames
+- `hero-hydroseeding.svg`
+- `large-lawn-installation.svg`
+- `commercial-erosion-control.svg`
+- `new-construction-lawn.svg`
+- `lawn-maintenance.svg`
+- `soil-prep.svg`
+- `before-lawn-1.svg`
+- `after-lawn-1.svg`
+- `before-lawn-2.svg`
+- `after-lawn-2.svg`
+- `equipment-process.svg`
+- `contact-quote.svg`
 
 ## Animation system
 - Scroll reveal (`[data-reveal]`) using IntersectionObserver.

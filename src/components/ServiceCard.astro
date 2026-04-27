@@ -1,0 +1,11 @@
+---
+import ImageFrame from './ImageFrame.astro';
+interface Props { title: string; excerpt: string; href: string; image: string; }
+const { title, excerpt, href, image } = Astro.props;
+---
+<article class="card service-card">
+  <ImageFrame src={image} alt={`Placeholder image for ${title} service in Michiana`} caption={title} />
+  <h3>{title}</h3>
+  <p>{excerpt}</p>
+  <a class="btn btn-secondary" href={href}>View Service</a>
+</article>

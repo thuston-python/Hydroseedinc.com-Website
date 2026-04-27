@@ -1,0 +1,25 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import LocationCard from '../../components/LocationCard.astro';
+import QuoteCTA from '../../components/QuoteCTA.astro';
+import { locations } from '../../data/site';
+---
+<MainLayout title="Locations We Serve | Hydroseed Inc. Michiana" description="Hydroseed Inc. serves South Bend, Mishawaka, Elkhart, Granger, Osceola, and surrounding Michiana communities.">
+  <section class="section">
+    <div class="container">
+      <SectionHeading badge="Locations" title="Local hydroseeding and lawn installation services across Michiana" intro="Each service-area page includes local-intent guidance and direct links to relevant service pages." />
+      <div class="cards-3" style="margin-top:1rem;">
+        {locations.slice(0, 5).map((location) => (
+          <LocationCard name={location.name} summary={location.summary} href={`/locations/${location.slug}`} />
+        ))}
+        <article class="card location-card">
+          <h3>Greater Michiana</h3>
+          <p>Need service outside core city pages? Use the quote form with your city and project details.</p>
+          <a class="btn btn-secondary" href="/contact">Request Coverage Check</a>
+        </article>
+      </div>
+    </div>
+  </section>
+  <QuoteCTA copy="Need service-area confirmation? Send your project city and property details for quick response." />
+</MainLayout>

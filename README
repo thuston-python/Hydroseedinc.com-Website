@@ -1,1 +1,156 @@
-This is a Draft for hydroseedinc
+# Hydroseed Inc. Premium Redesign Demo (Astro)
+
+This repository contains a complete outreach/demo redesign for **Hydroseed Inc.**, focused on hydroseeding, lawn installation, erosion control, and post-installation support across Greater Michiana.
+
+## Stack used
+- **Astro** for fast static pages and strong SEO output.
+- **Custom CSS design system** in `src/styles/global.css` for premium, easy-to-edit styling.
+
+> Why Astro: excellent performance, SEO-friendly static output, simple component architecture, and easy deployment to Vercel/Replit.
+
+## Project goals implemented
+- Premium local-service design with contractor-grade credibility.
+- Conversion-focused quote path with repeat CTAs, click-to-call, and sticky mobile quote button.
+- Unique service/location pages and local-intent internal linking.
+- Structured SEO metadata and JSON-LD schema helpers.
+- Intentional image placeholder system ready for replacement with approved project photos.
+
+## Pages created
+- `/` Homepage
+- `/services`
+- `/services/hydroseeding`
+- `/services/lawn-installation`
+- `/services/commercial-erosion-control`
+- `/services/new-construction-lawn-seeding`
+- `/services/lawn-maintenance`
+- `/services/soil-prep-assessment`
+- `/locations`
+- `/locations/south-bend`
+- `/locations/mishawaka`
+- `/locations/elkhart`
+- `/locations/granger`
+- `/locations/osceola`
+- `/contact`
+- `/blog` (optional starter content strategy index)
+- `/sitemap.xml`
+- `/robots.txt`
+
+## Reusable components created
+- `Header`
+- `Footer`
+- `Hero`
+- `TrustStrip`
+- `SectionHeading`
+- `ServiceCard`
+- `LocationCard`
+- `ProcessTimeline`
+- `BeforeAfterGallery`
+- `ImageFrame`
+- `ResidentialCommercialSplit`
+- `FAQAccordion`
+- `QuoteCTA`
+- `QuoteForm`
+- `SEO`
+- `MobileStickyQuote`
+- `ServicePageTemplate`
+- `LocationPageTemplate`
+- `MainLayout`
+
+## Folder structure
+```
+.
+├── public/
+│   └── images/               # placeholder image slots (replace before launch)
+├── src/
+│   ├── components/           # reusable UI blocks
+│   ├── data/                 # editable copy/content and schema helpers
+│   ├── layouts/              # page wrapper layout
+│   ├── pages/                # all routes
+│   └── styles/               # global design system CSS
+├── astro.config.mjs
+├── package.json
+└── REDESIGN_NOTES.md
+```
+
+## Image placeholder system
+All current visuals are **text-based SVG placeholders** so the PR stays binary-free and fully reviewable.
+The following image paths are already wired into components/pages:
+- `/public/images/hero-hydroseeding.svg`
+- `/public/images/large-lawn-installation.svg`
+- `/public/images/commercial-erosion-control.svg`
+- `/public/images/new-construction-lawn.svg`
+- `/public/images/lawn-maintenance.svg`
+- `/public/images/soil-prep.svg`
+- `/public/images/before-lawn-1.svg`
+- `/public/images/after-lawn-1.svg`
+- `/public/images/before-lawn-2.svg`
+- `/public/images/after-lawn-2.svg`
+- `/public/images/equipment-process.svg`
+- `/public/images/contact-quote.svg`
+
+### Replacing placeholder images
+1. Keep the same filenames to avoid updating component references.
+2. Replace files with approved real photos (`.jpg`, `.webp`, etc.) or production SVG artwork while keeping the same filenames/paths as needed.
+3. Preserve/adjust `alt` text in components for accessibility and local SEO context.
+4. Ensure all real images are licensed and approved by the business.
+
+## SEO improvements included
+- Unique page titles and descriptions.
+- Semantic heading structure.
+- Local-intent internal links between service and location pages.
+- FAQ content on homepage and detail pages.
+- JSON-LD support for LocalBusiness, Service, and FAQPage.
+- Sitemap route (`/sitemap.xml`) and robots route (`/robots.txt`).
+- Natural keyword integration (no stuffing).
+
+## Quote form integration options (currently frontend-only)
+The form is intentionally backend-free in this demo. You can connect it via:
+
+### Netlify Forms
+- Add `name="quote"` and `data-netlify="true"` on `<form>`.
+- Include hidden `<input type="hidden" name="form-name" value="quote" />`.
+
+### Formspree
+- Set `action="https://formspree.io/f/{your-id}"` and `method="POST"`.
+
+### EmailJS
+- Add client-side script with EmailJS SDK and map fields to template variables.
+
+### Resend or custom API route
+- Add server endpoint (Astro API route) and send validated payload to email service.
+
+## Install and run
+> Note: if your environment blocks npm registry access, install commands may fail until network policy is updated.
+
+```bash
+npm install
+npm run dev
+```
+
+Open local URL shown by Astro (usually `http://localhost:4321`).
+
+## Build
+```bash
+npm run build
+npm run preview
+```
+
+## Deploy to Vercel
+1. Push repo to GitHub.
+2. Import project in Vercel.
+3. Build command: `npm run build`
+4. Output directory: `dist`
+5. Deploy.
+
+## Replit usage
+1. Import repo into Replit.
+2. Run `npm install`.
+3. Set run command to `npm run dev -- --host`.
+4. Use Replit webview URL for preview.
+
+## Presenting this demo respectfully (Tobin Studio guidance)
+- Frame as a **capability demo**, not criticism.
+- Acknowledge existing site strengths first.
+- Emphasize gains in conversion clarity, local SEO structure, and service-page depth.
+- Offer migration in phases (copy, photos, trust assets, form backend).
+- Keep testimonial/review data factual and owner-approved.

@@ -1,3 +1,5 @@
+import { demoImages } from './images';
+
 export const company = {
   name: 'Hydroseed Inc.',
   phoneDisplay: '(574) 555-0147',
@@ -10,37 +12,37 @@ export const services = [
     slug: 'hydroseeding',
     title: 'Hydroseeding',
     excerpt: 'Fast, even seed coverage for large lawns, slopes, and new builds with a protective hydromulch layer.',
-    image: '/images/hero-hydroseeding.svg'
+    image: demoImages.hydroseeding
   },
   {
     slug: 'lawn-installation',
     title: 'Lawn Installation',
     excerpt: 'Complete lawn establishment with site prep, grading, seeding method recommendations, and watering guidance.',
-    image: '/images/large-lawn-installation.svg'
+    image: demoImages.lawnInstallation
   },
   {
     slug: 'new-construction-lawn-seeding',
     title: 'New Construction Seeding',
     excerpt: 'Coordinated lawn startup for builders and homeowners finishing a new home project.',
-    image: '/images/new-construction-lawn.svg'
+    image: demoImages.newConstruction
   },
   {
     slug: 'commercial-erosion-control',
     title: 'Commercial Erosion Control',
     excerpt: 'Slope stabilization and erosion-focused seeding for jobsites, retention zones, and commercial properties.',
-    image: '/images/commercial-erosion-control.svg'
+    image: demoImages.commercialErosion
   },
   {
     slug: 'lawn-maintenance',
     title: 'Lawn Maintenance',
     excerpt: 'Post-installation support focused on establishing healthy turf after seeding, not generic mowing-only service.',
-    image: '/images/lawn-maintenance.svg'
+    image: demoImages.lawnMaintenance
   },
   {
     slug: 'soil-prep-assessment',
     title: 'Soil Prep & Assessment',
     excerpt: 'Pre-seeding site inspection to reduce failure points caused by poor topsoil, compaction, and drainage issues.',
-    image: '/images/soil-prep.svg'
+    image: demoImages.soilPrep
   }
 ];
 

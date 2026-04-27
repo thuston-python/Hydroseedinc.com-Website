@@ -1,10 +1,11 @@
 ---
 import ImageFrame from './ImageFrame.astro';
+import { demoCaptionSuffix } from '../data/images';
 interface Props { title: string; excerpt: string; href: string; image: string; }
 const { title, excerpt, href, image } = Astro.props;
 ---
 <article class="card service-card">
-  <ImageFrame src={image} alt={`Placeholder image for ${title} service in Michiana`} caption={title} />
+  <ImageFrame src={image} alt={`Placeholder image for ${title} service in Michiana`} caption={`${title} · ${demoCaptionSuffix}`} />
   <h3>{title}</h3>
   <p>{excerpt}</p>
   <a class="btn btn-secondary" href={href}>View Service</a>

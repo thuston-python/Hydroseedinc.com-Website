@@ -1,4 +1,5 @@
 ---
+import { demoImages, demoCaptionSuffix } from '../data/images';
 import MainLayout from '../layouts/MainLayout.astro';
 import QuoteForm from '../components/QuoteForm.astro';
 import ImageFrame from '../components/ImageFrame.astro';
@@ -15,7 +16,7 @@ import { company } from '../data/site';
         <p><strong>Call:</strong> <a href={`tel:${company.phoneHref}`}>{company.phoneDisplay}</a></p>
         <p><strong>Service area:</strong> {company.serviceArea}</p>
         <p><strong>Response flow:</strong> We review your details, confirm service fit, and provide next-step guidance for scheduling.</p>
-        <ImageFrame src="/images/contact-quote.svg" alt="Placeholder contact visual showing lawn consultation and site prep planning" caption="Placeholder visual slot: replace with approved consultation or project photo" />
+        <ImageFrame src={demoImages.contact} alt="Representative demo visual of lawn consultation and project planning" caption={`Contact Visual · ${demoCaptionSuffix}`} />
       </div>
       <QuoteForm />
     </div>

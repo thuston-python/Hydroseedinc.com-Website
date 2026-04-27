@@ -5,6 +5,7 @@ import FAQAccordion from './FAQAccordion.astro';
 import QuoteCTA from './QuoteCTA.astro';
 import ImageFrame from './ImageFrame.astro';
 import { makeFaqSchema, makeServiceSchema } from '../data/schemas';
+import { demoCaptionSuffix } from '../data/images';
 
 interface Props {
   title: string;
@@ -32,7 +33,7 @@ const schema = [makeServiceSchema(h1, intro), makeFaqSchema(faqs)];
         </p>
         <p class="cta-note">Not sure if this is the right service? Send your city, project size, and current site condition.</p>
       </div>
-      <ImageFrame src={image} alt={`Placeholder visual for ${h1}`} caption="Placeholder visual slot for approved project photography" />
+      <ImageFrame src={image} alt={`Placeholder visual for ${h1}`} caption={`Service Visual · ${demoCaptionSuffix}`} />
     </div>
   </section>
 
